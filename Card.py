@@ -8,10 +8,8 @@ class Card:
     def __init__(self, card_balance, cash_withdrawal):
         self.card_balance = card_balance
         self.cash_withdrawal = cash_withdrawal
-    # card_balance = 10000.0
 
     def withdrawal(self, nominal):
-        # print("Necessary amount of money: " + str(nominal))
         global amount_of_banknotes, banknote
         files = open('ATM.txt', "r")
         line_second = files.readlines()
@@ -45,7 +43,6 @@ class Card:
                 print("You have entered an amount that is more than requested! Please, enter correct data!")
             else:
                 nominal = nominal - (amount_of_banknotes*banknote)
-            # update- обновление, get- получение значения по ключу + уменьшение его на единицу
             print("The remaining amount to be withdrawn: "+str(nominal))
         ATM.amount_of_storage_banknotes.update(
             {str(banknote): (ATM.amount_of_storage_banknotes.get(str(banknote)) - amount_of_banknotes)})

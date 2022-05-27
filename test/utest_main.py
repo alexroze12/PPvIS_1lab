@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(str(Card.Card.password), "1234")
 
     def third_test(self):
-        file = open('ATM.txt', "r")
+        file = open('../config/ATM.txt', "r")
         lines = file.readlines()
         amount_of_storage_banknotes = eval(lines[0])
         balance_on_your_card = int(lines[1])
@@ -32,7 +32,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(balance_on_your_card, 12500)
 
     def forth_test(self):
-        file = open('ATM.txt', "r")
+        file = open('../config/ATM.txt', "r")
         lines = file.readlines()
         balance_on_your_card = int(lines[1])
         m = Telephone.Telephone(1000, balance_on_your_card)

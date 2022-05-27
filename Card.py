@@ -11,7 +11,7 @@ class Card:
 
     def withdrawal(self, nominal):
         global amount_of_banknotes, banknote
-        files = open('ATM.txt', "r")
+        files = open('config/ATM.txt', "r")
         line_second = files.readlines()
         ATM.amount_of_storage_banknotes = eval(line_second[0])
         self.cash_withdrawal = int(line_second[3])
@@ -47,11 +47,12 @@ class Card:
         ATM.amount_of_storage_banknotes.update(
             {str(banknote): (ATM.amount_of_storage_banknotes.get(str(banknote)) - amount_of_banknotes)})
         print("Card balance: "+str(self.card_balance))
-        with open("ATM.txt", "w") as my_file:
+        with open("config/ATM.txt", "w") as my_file:
             my_file.write(str(ATM.amount_of_storage_banknotes))
-        with open("ATM.txt", "a") as my_file:
+        with open("config/ATM.txt", "a") as my_file:
             my_file.write("\n"+str(self.card_balance))
-        with open("ATM.txt", "a") as my_file:
+        with open("config/ATM.txt", "a") as my_file:
             my_file.write("\n" + status_of_card)
-        with open("ATM.txt", "a") as my_file:
+        with open("config/ATM.txt", "a") as my_file:
             my_file.write(str(self.cash_withdrawal))
+        return self.cash_withdrawal
